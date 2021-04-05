@@ -11,5 +11,5 @@ Expression:     Value Addition
 Addition:       + Multipule | - Multiple | null
 Multiple:       Value MultipleTail
 MultipleTail:   * Value | / Value | null
-Value:          ( Expression ) | number
+Value:          ( Expression ) | - number | number
 ```

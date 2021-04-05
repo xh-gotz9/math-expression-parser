@@ -9,7 +9,7 @@ public class ParserTest {
 
     @Test
     public void test() {
-        ExpressionNode ast = ExpressionParser.ast("(1 + 2) / 4 + 3");
+        ExpressionNode ast = ExpressionParser.ast("(1 + 2) / - 4 + - 3");
         System.out.println(ast);
     }
 

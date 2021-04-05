@@ -80,8 +80,11 @@ public class ExpressionParser {
         switch (peek(tokens)) {
             case LBRACE:
                 return factorExpression(tokens);
+            case MINUS:
+                match(tokens, MINUS);
+                return number(tokens, -1);
             case NUMBER:
-                return number(tokens);
+                return number(tokens, 1);
             default:
                 throw new IllegalStateException();
         }
@@ -100,9 +103,9 @@ public class ExpressionParser {
     /**
      * number
      */
-    private static NumberNode number(Queue<Token> tokens) {
+    private static NumberNode number(Queue<Token> tokens, int bonus) {
         Token token = match(tokens, NUMBER);
-        return new NumberNode(Double.parseDouble(token.text));
+        return new NumberNode(Double.parseDouble(token.text) * bonus);
     }
 
     private static ExpressionTokenType peek(Queue<Token> tokens) {
